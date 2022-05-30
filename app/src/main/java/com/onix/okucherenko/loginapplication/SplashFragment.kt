@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.onix.okucherenko.loginapplication.databinding.FragmentSplashBinding
+import kotlinx.coroutines.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +24,7 @@ class SplashFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var stepToNext: Job? = null
 
     //binding
     private var _binding: FragmentSplashBinding? = null
@@ -43,6 +47,35 @@ class SplashFragment : Fragment() {
         _binding = FragmentSplashBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.rootFrame.setOnClickListener {
+            var snackBar = Snackbar
+                .make(binding.root, getString(R.string.splash_snack_massage), Snackbar.LENGTH_SHORT)
+                .setAnchorView(binding.animationView)
+                snackBar.view.setBackgroundColor(resources.getColor(R.color.teal_700, null))
+            snackBar.show()
+
+        }
+
+        val lottieAnimationPicture1 = R.raw.loading09
+        val lottieAnimationPicture2 = R.raw.loading041
+
+        val lottie = binding.animationView
+        lottie.setAnimation(lottieAnimationPicture1)
+        lottie.setOnClickListener {
+            lottie.setAnimation(lottieAnimationPicture2)
+            lottie.playAnimation()
+        }
+
+        val currentNavController = findNavController()
+        GlobalScope.launch(Dispatchers.Main) {
+            delay(5000)
+            currentNavController.navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
+        }
     }
 
     override fun onDestroyView() {

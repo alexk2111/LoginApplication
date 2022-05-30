@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.onix.okucherenko.loginapplication.databinding.FragmentLoginBinding
 import com.onix.okucherenko.loginapplication.databinding.FragmentSplashBinding
 
@@ -45,6 +46,13 @@ class LoginFragment : Fragment() {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+       binding.button.setOnClickListener {
+           findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToResultFragment())
+       }
     }
 
     override fun onDestroyView() {

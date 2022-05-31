@@ -10,31 +10,19 @@ import com.google.android.material.snackbar.Snackbar
 import com.onix.okucherenko.loginapplication.databinding.FragmentSplashBinding
 import kotlinx.coroutines.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 /**
  * A simple [Fragment] subclass.
  * Use the [SplashFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
 class SplashFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-    private var stepToNext: Job? = null
 
-    //binding
     private var _binding: FragmentSplashBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
         }
     }
 
@@ -42,8 +30,6 @@ class SplashFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_splash, container, false)
         _binding = FragmentSplashBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
@@ -53,7 +39,7 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.rootFrame.setOnClickListener {
-            var snackBar = Snackbar
+            val snackBar = Snackbar
                 .make(binding.root, getString(R.string.splash_snack_massage), Snackbar.LENGTH_SHORT)
                 .setAnchorView(binding.animationView)
                 snackBar.view.setBackgroundColor(resources.getColor(R.color.teal_700, null))
@@ -97,8 +83,6 @@ class SplashFragment : Fragment() {
         fun newInstance(param1: String, param2: String) =
             SplashFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
                 }
             }
     }

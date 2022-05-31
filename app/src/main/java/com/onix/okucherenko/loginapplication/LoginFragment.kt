@@ -1,17 +1,12 @@
 package com.onix.okucherenko.loginapplication
 
 import android.os.Bundle
-import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.onix.okucherenko.loginapplication.databinding.FragmentLoginBinding
-import com.onix.okucherenko.loginapplication.databinding.FragmentSplashBinding
-import java.util.*
-
-// TODO: Rename parameter arguments, choose names that match
 
 /**
  * A simple [Fragment] subclass.
@@ -75,6 +70,7 @@ class LoginFragment : Fragment() {
             return false
         } else if (password.length < 8) {
             binding.editTextPassword.error = "The password must contain at least 8 characters"
+            return false
         }
         return true
     }
@@ -92,7 +88,6 @@ class LoginFragment : Fragment() {
          * @param param2 Parameter 2.
          * @return A new instance of fragment LoginFragment.
          */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             LoginFragment().apply {

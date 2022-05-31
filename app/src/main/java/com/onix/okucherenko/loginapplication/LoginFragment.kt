@@ -1,6 +1,7 @@
 package com.onix.okucherenko.loginapplication
 
 import android.os.Bundle
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,11 +9,9 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.onix.okucherenko.loginapplication.databinding.FragmentLoginBinding
 import com.onix.okucherenko.loginapplication.databinding.FragmentSplashBinding
+import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -20,11 +19,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class LoginFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    //binding
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
@@ -32,8 +27,6 @@ class LoginFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
         }
     }
 
@@ -41,20 +34,50 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_login, container, false)
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        super.onViewCreated(view, savedInstanceState )
+        val editTextUserName = binding.editTextUserName
+        val editTextPassword = binding.editTextPassword
        binding.button.setOnClickListener {
-           findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToResultFragment())
+           val userName = editTextUserName.text.toString()
+           val userPassword = editTextPassword.text.toString()
+
+           if (checkUserName(userName) && checkPassword(userPassword)) {
+               val amount = editTextUserName.text.toString()
+               val action = LoginFragmentDirections.actionLoginFragmentToResultFragment(amount)
+               findNavController().navigate(action)
+           }
        }
     }
 
+    private fun checkUserName(userName: String): Boolean {
+        if (userName.isEmpty() || userName.contains( " ")) {
+            binding.editTextUserName.error = "Field cannot be empty or or contain spaces"
+            return false
+        }
+        return true
+    }
+
+    private fun checkPassword(password: String): Boolean {
+        if (password.uppercase() == password) {
+            binding.editTextPassword.error = "The password must contain lowercase letters"
+            return false
+        } else if ( password.lowercase() == password) {
+            binding.editTextPassword.error = "The password must contain uppercase letters"
+            return false
+        } else if (!password.matches(Regex(".*[0-9]"))) {
+            binding.editTextPassword.error = "The password must contain numbers"
+            return false
+        } else if (password.length < 8) {
+            binding.editTextPassword.error = "The password must contain at least 8 characters"
+        }
+        return true
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -74,8 +97,6 @@ class LoginFragment : Fragment() {
         fun newInstance(param1: String, param2: String) =
             LoginFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
                 }
             }
     }

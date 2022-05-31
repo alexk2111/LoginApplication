@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">LoginApplication</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_view_name">Name</string>
     <string name="load_application">Load Application</string>
     <string name="splash_snack_massage">One moment please</string>
+    <string name="button_login">Login</string>
+    <string name="text_view_password">Password</string>
+    <string name="text_edit_name">Name</string>
+    <string name="testTextView">testTextView</string>
 </resources>

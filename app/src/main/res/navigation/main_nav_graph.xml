@@ -29,5 +29,9 @@
         android:id="@+id/resultFragment"
         android:name="com.onix.okucherenko.loginapplication.ResultFragment"
         android:label="fragment_result"
-        tools:layout="@layout/fragment_result" />
+        tools:layout="@layout/fragment_result" >
+        <argument
+            android:name="userName"
+            app:argType="string" />
+    </fragment>
 </navigation>

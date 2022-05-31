@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
 import com.onix.okucherenko.loginapplication.databinding.FragmentResultBinding
 import com.onix.okucherenko.loginapplication.databinding.FragmentSplashBinding
 
@@ -22,6 +23,7 @@ class ResultFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    val args: ResultFragmentArgs by navArgs()
 
     //binding
     private var _binding: FragmentResultBinding? = null
@@ -45,6 +47,11 @@ class ResultFragment : Fragment() {
         _binding = FragmentResultBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.userName.text = "Welcome ${args.userName.toString()}!"
     }
 
     override fun onDestroyView() {

@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.onix.okucherenko.loginapplication.LoginFragment"
+        android:name="com.onix.okucherenko.loginapplication.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
-        android:name="com.onix.okucherenko.loginapplication.ResultFragment"
+        android:name="com.onix.okucherenko.loginapplication.result.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" >
         <argument

@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">LoginApplication</string>
+    <string name="text_view_name">Name</string>
+    <string name="load_application">Load Application</string>
+    <string name="splash_snack_massage">One moment please</string>
+    <string name="button_login">Login</string>
+    <string name="text_view_password">Password</string>
+    <string name="text_edit_name">Name</string>
+    <string name="testTextView">testTextView</string>
+    <string name="error_lowercase">The password must contain lowercase letters</string>
+    <string name="error_uppercase">The password must contain uppercase letters</string>
+    <string name="error_number">The password must contain numbers</string>
+    <string name="error_8characters">The password must contain at least 8 characters</string>
+    <string name="error_login_empty">Field cannot be empty or contain spaces</string>
+    <string name="welcome">Welcome</string>
 </resources>

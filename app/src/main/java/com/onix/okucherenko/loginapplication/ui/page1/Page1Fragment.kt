@@ -15,8 +15,8 @@ class Page1Fragment : Fragment(R.layout.fragment_page1) {
 
     private lateinit var viewModel: Page1ViewModel
     private lateinit var viewModelFactory: Page1ViewModelFactory
-    lateinit var binding: FragmentPage1Binding
-    var actualPage = 0
+    private lateinit var binding: FragmentPage1Binding
+    private var actualPage = 0
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -37,24 +37,6 @@ class Page1Fragment : Fragment(R.layout.fragment_page1) {
             viewModel.quiz.page[actualPage].question[0].answers[1].content
         binding.textViewAge.text = viewModel.quiz.page[actualPage].question[0].answers[2].content
 
-        binding.editTextTextName.setOnFocusChangeListener { _: View, hasFocus ->
-            if (!hasFocus) {
-//                viewModel.quiz.page[actualPage].question[0].answers[0].result =
-//                    binding.editTextTextName.text.toString().trim()
-            }
-        }
-        binding.editTextTextSurName.setOnFocusChangeListener { _: View, hasFocus ->
-            if (!hasFocus) {
-//                viewModel.quiz.page[actualPage].question[0].answers[1].result =
-//                    binding.editTextTextSurName.text.toString().trim()
-            }
-        }
-        binding.editTextAge.setOnFocusChangeListener { _: View, hasFocus ->
-            if (!hasFocus) {
-//                viewModel.quiz.page[actualPage].question[0].answers[2].result =
-//                    binding.editTextAge.text.toString()
-            }
-        }
         binding.buttonPage1toPage2.setOnClickListener {
             onClickButtonPage1toPage2()
         }

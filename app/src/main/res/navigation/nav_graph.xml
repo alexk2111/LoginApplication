@@ -9,7 +9,7 @@
         android:id="@+id/titleFragment"
         android:name="com.onix.okucherenko.loginapplication.ui.title.TitleFragment"
         android:label="fragment_title"
-        tools:layout="@layout/fragment_title" >
+        tools:layout="@layout/fragment_title">
         <action
             android:id="@+id/action_titleFragment_to_page1Fragment"
             app:destination="@id/page1Fragment" />
@@ -18,7 +18,7 @@
         android:id="@+id/page1Fragment"
         android:name="com.onix.okucherenko.loginapplication.ui.page1.Page1Fragment"
         android:label="fragment_page1"
-        tools:layout="@layout/fragment_page1" >
+        tools:layout="@layout/fragment_page1">
         <argument
             android:name="modelQuiz"
             app:argType="string" />
@@ -30,7 +30,7 @@
         android:id="@+id/page2Fragment"
         android:name="com.onix.okucherenko.loginapplication.ui.Page2.Page2Fragment"
         android:label="fragment_page2"
-        tools:layout="@layout/fragment_page2" >
+        tools:layout="@layout/fragment_page2">
         <argument
             android:name="modelQuiz"
             app:argType="string" />
@@ -42,18 +42,18 @@
         android:id="@+id/page3Fragment"
         android:name="com.onix.okucherenko.loginapplication.ui.Page3.Page3Fragment"
         android:label="fragment_page3"
-        tools:layout="@layout/fragment_page3" >
+        tools:layout="@layout/fragment_page3">
+        <argument android:name="modelQuiz"
+            app:argType="string" />
         <action
             android:id="@+id/action_page3Fragment_to_resultFragment"
             app:destination="@id/resultFragment" />
-        <argument android:name="modelQuiz"
-            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
         android:name="com.onix.okucherenko.loginapplication.ui.result.ResultFragment"
         android:label="fragment_result"
-        tools:layout="@layout/fragment_result" >
+        tools:layout="@layout/fragment_result">
         <argument
             android:name="modelQuiz"
             app:argType="string" />

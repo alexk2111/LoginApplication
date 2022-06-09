@@ -25,4 +25,10 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
 
         binding.textViewResult.text = viewModel.resultTest
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        fragmentResultBinding = null
+    }
+
 }

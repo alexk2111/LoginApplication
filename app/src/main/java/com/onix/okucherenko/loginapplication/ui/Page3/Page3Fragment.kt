@@ -1,11 +1,13 @@
 package com.onix.okucherenko.loginapplication.ui.Page3
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.snackbar.Snackbar
 import com.onix.okucherenko.loginapplication.R
 import com.onix.okucherenko.loginapplication.databinding.FragmentPage3Binding
 
@@ -60,7 +62,10 @@ class Page3Fragment : Fragment(R.layout.fragment_page3) {
             binding.checkBoxAnswer8.isChecked ||
             binding.checkBoxAnswer9.isChecked ||
             binding.checkBoxAnswer10.isChecked)){
-            Toast.makeText(context, "Make a choice!!!", Toast.LENGTH_SHORT).show()
+            val snackBar = Snackbar
+                .make(binding.root, "Make a choice!!!", Snackbar.LENGTH_SHORT)
+            snackBar.view.setBackgroundColor(Color.RED)
+            snackBar.show()
             return
         }
 

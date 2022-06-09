@@ -1,11 +1,13 @@
 package com.onix.okucherenko.loginapplication.ui.page1
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.snackbar.Snackbar
 import com.onix.okucherenko.loginapplication.R
 import com.onix.okucherenko.loginapplication.databinding.FragmentPage1Binding
 
@@ -48,7 +50,10 @@ class Page1Fragment : Fragment(R.layout.fragment_page1) {
             binding.editTextTextSurName.text.isEmpty() ||
             binding.editTextAge.text.isEmpty()
         ) {
-            Toast.makeText(context, "All fields must be completed!!!", Toast.LENGTH_SHORT).show()
+            val snackBar = Snackbar
+                .make(binding.root, "All fields must be completed!!!", Snackbar.LENGTH_SHORT)
+            snackBar.view.setBackgroundColor(Color.RED)
+            snackBar.show()
             return
         }
 

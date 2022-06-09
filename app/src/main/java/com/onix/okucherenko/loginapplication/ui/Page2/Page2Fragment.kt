@@ -1,11 +1,13 @@
 package com.onix.okucherenko.loginapplication.ui.Page2
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.snackbar.Snackbar
 import com.onix.okucherenko.loginapplication.R
 import com.onix.okucherenko.loginapplication.databinding.FragmentPage2Binding
 
@@ -30,11 +32,16 @@ class Page2Fragment : Fragment(R.layout.fragment_page2) {
 
         actualPage = viewModel.actualPage
 
-        binding.radioButtonAnswer1.text = viewModel.quiz.page[actualPage].question[0].answers[0].content
-        binding.radioButtonAnswer2.text = viewModel.quiz.page[actualPage].question[0].answers[1].content
-        binding.radioButtonAnswer3.text = viewModel.quiz.page[actualPage].question[0].answers[2].content
-        binding.radioButtonAnswer4.text = viewModel.quiz.page[actualPage].question[0].answers[3].content
-        binding.radioButtonAnswer5.text = viewModel.quiz.page[actualPage].question[0].answers[4].content
+        binding.radioButtonAnswer1.text =
+            viewModel.quiz.page[actualPage].question[0].answers[0].content
+        binding.radioButtonAnswer2.text =
+            viewModel.quiz.page[actualPage].question[0].answers[1].content
+        binding.radioButtonAnswer3.text =
+            viewModel.quiz.page[actualPage].question[0].answers[2].content
+        binding.radioButtonAnswer4.text =
+            viewModel.quiz.page[actualPage].question[0].answers[3].content
+        binding.radioButtonAnswer5.text =
+            viewModel.quiz.page[actualPage].question[0].answers[4].content
 
         binding.buttonPage2toPage3.setOnClickListener {
             onClickButtonPage2toPage3()
@@ -45,42 +52,46 @@ class Page2Fragment : Fragment(R.layout.fragment_page2) {
 
     private fun onClickButtonPage2toPage3() {
 
-    if (!binding.radioButtonAnswer1.isChecked &&
+        if (!binding.radioButtonAnswer1.isChecked &&
             !binding.radioButtonAnswer2.isChecked &&
             !binding.radioButtonAnswer3.isChecked &&
             !binding.radioButtonAnswer4.isChecked &&
-            !binding.radioButtonAnswer5.isChecked){
-            Toast.makeText(context, "Make a choice!!!", Toast.LENGTH_SHORT).show()
+            !binding.radioButtonAnswer5.isChecked
+        ) {
+            val snackBar = Snackbar
+                .make(binding.root, "Make a choice!!!", Snackbar.LENGTH_SHORT)
+            snackBar.view.setBackgroundColor(Color.RED)
+            snackBar.show()
             return
         }
 
-        if(binding.radioButtonAnswer1.isChecked) {
+        if (binding.radioButtonAnswer1.isChecked) {
             viewModel.quiz.page[actualPage].question[0].answers[0].result =
                 binding.radioButtonAnswer1.text.toString()
         } else {
             viewModel.quiz.page[actualPage].question[0].answers[0].result = ""
         }
-        if(binding.radioButtonAnswer2.isChecked) {
-        viewModel.quiz.page[actualPage].question[0].answers[1].result =
-            binding.radioButtonAnswer2.text.toString()
+        if (binding.radioButtonAnswer2.isChecked) {
+            viewModel.quiz.page[actualPage].question[0].answers[1].result =
+                binding.radioButtonAnswer2.text.toString()
         } else {
             viewModel.quiz.page[actualPage].question[0].answers[1].result = ""
         }
-        if(binding.radioButtonAnswer3.isChecked) {
-        viewModel.quiz.page[actualPage].question[0].answers[2].result =
-            binding.radioButtonAnswer3.text.toString()
+        if (binding.radioButtonAnswer3.isChecked) {
+            viewModel.quiz.page[actualPage].question[0].answers[2].result =
+                binding.radioButtonAnswer3.text.toString()
         } else {
             viewModel.quiz.page[actualPage].question[0].answers[2].result = ""
         }
-        if(binding.radioButtonAnswer4.isChecked) {
-        viewModel.quiz.page[actualPage].question[0].answers[3].result =
-            binding.radioButtonAnswer4.text.toString()
+        if (binding.radioButtonAnswer4.isChecked) {
+            viewModel.quiz.page[actualPage].question[0].answers[3].result =
+                binding.radioButtonAnswer4.text.toString()
         } else {
             viewModel.quiz.page[actualPage].question[0].answers[3].result = ""
         }
-        if(binding.radioButtonAnswer5.isChecked) {
-        viewModel.quiz.page[actualPage].question[0].answers[4].result =
-            binding.radioButtonAnswer5.text.toString()
+        if (binding.radioButtonAnswer5.isChecked) {
+            viewModel.quiz.page[actualPage].question[0].answers[4].result =
+                binding.radioButtonAnswer5.text.toString()
         } else {
             viewModel.quiz.page[actualPage].question[0].answers[4].result = ""
         }

@@ -1,7 +1,7 @@
 package com.onix.okucherenko.loginapplication.model.quiz
 
 data class Question(
-    val answers: List<Answer>,
+    var answers: MutableList<Answer>,
     val content: String,
     val type: Int
 )

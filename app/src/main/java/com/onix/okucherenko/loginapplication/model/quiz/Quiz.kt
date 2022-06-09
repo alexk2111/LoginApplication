@@ -2,5 +2,5 @@ package com.onix.okucherenko.loginapplication.model.quiz
 
 data class Quiz(
     val nameTest: String,
-    val page: List<Page>
+    val page: MutableList<Page>
 )

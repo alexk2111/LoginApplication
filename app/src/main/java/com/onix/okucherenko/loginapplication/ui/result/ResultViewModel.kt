@@ -22,9 +22,10 @@ class ResultViewModel(finalQuiz: String) : ViewModel() {
                 resultTest += value.content + "\n"
                 val answers = value.answers
                 for (value in answers) {
-                    resultTest += value.content + "\n"
+                    if (value.result.isNotEmpty()) {
+                        resultTest += value.result + "\n"
+                    }
                 }
-
             }
         }
 

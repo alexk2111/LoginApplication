@@ -4,4 +4,6 @@
     <string name="next_page">Next page</string>
     <string name="start_test">Start Test</string>
     <string name="result">Result</string>
+    <string name="error_must_be_completed">All fields must be completed!!!</string>
+    <string name="make_a_choice">Make a choice!!!</string>
 </resources>

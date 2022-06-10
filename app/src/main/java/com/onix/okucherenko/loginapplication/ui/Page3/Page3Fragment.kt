@@ -3,10 +3,15 @@ package com.onix.okucherenko.loginapplication.ui.Page3
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
+import androidx.core.view.children
+import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.checkbox.MaterialCheckBox
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textview.MaterialTextView
 import com.onix.okucherenko.loginapplication.R
 import com.onix.okucherenko.loginapplication.databinding.FragmentPage3Binding
 
@@ -31,27 +36,34 @@ class Page3Fragment : Fragment(R.layout.fragment_page3) {
 
         actualPage = viewModel.actualPage
 
-        binding.textViewContext.text = viewModel.quiz.page[actualPage].question[0].content
-
-        binding.checkBoxAnswer1.text = viewModel.quiz.page[actualPage].question[0].answers[0].content
-        binding.checkBoxAnswer2.text = viewModel.quiz.page[actualPage].question[0].answers[1].content
-        binding.checkBoxAnswer3.text = viewModel.quiz.page[actualPage].question[0].answers[2].content
-        binding.checkBoxAnswer4.text = viewModel.quiz.page[actualPage].question[0].answers[3].content
-        binding.checkBoxAnswer5.text = viewModel.quiz.page[actualPage].question[0].answers[4].content
-        binding.checkBoxAnswer6.text = viewModel.quiz.page[actualPage].question[0].answers[5].content
-        binding.checkBoxAnswer7.text = viewModel.quiz.page[actualPage].question[0].answers[6].content
-        binding.checkBoxAnswer8.text = viewModel.quiz.page[actualPage].question[0].answers[7].content
-        binding.checkBoxAnswer9.text = viewModel.quiz.page[actualPage].question[0].answers[8].content
-        binding.checkBoxAnswer10.text = viewModel.quiz.page[actualPage].question[0].answers[9].content
+        updateViewText(binding.mainLayout, 0)
 
         binding.buttonPage3toResult.setOnClickListener {
             onClickButtonPage3toResult()
         }
     }
 
+    private fun updateViewText(view: View, numberAnswer: Int): Int {
+        var localNumberAnswer = numberAnswer
+        if (view is ViewGroup) {
+            view.children.forEach { localNumberAnswer = updateViewText(it, localNumberAnswer) }
+
+        } else {
+            when (view) {
+                is MaterialTextView -> view.text =
+                    viewModel.quiz.page[actualPage].question[0].content
+                is MaterialCheckBox -> {
+                    view.text =
+                        viewModel.quiz.page[actualPage].question[0].answers[numberAnswer].content
+                    localNumberAnswer++
+                }
+            }
+        }
+        return localNumberAnswer
+    }
 
     private fun onClickButtonPage3toResult() {
-        if (!(binding.checkBoxAnswer1.isChecked ||
+        if (binding.checkBoxAnswer1.isChecked ||
             binding.checkBoxAnswer2.isChecked ||
             binding.checkBoxAnswer3.isChecked ||
             binding.checkBoxAnswer4.isChecked ||
@@ -60,73 +72,31 @@ class Page3Fragment : Fragment(R.layout.fragment_page3) {
             binding.checkBoxAnswer7.isChecked ||
             binding.checkBoxAnswer8.isChecked ||
             binding.checkBoxAnswer9.isChecked ||
-            binding.checkBoxAnswer10.isChecked)){
+            binding.checkBoxAnswer10.isChecked
+        ) {
+            navigateToNextPage()
+        } else {
             val snackBar = Snackbar
-                .make(binding.root, "Make a choice!!!", Snackbar.LENGTH_SHORT)
+                .make(binding.root, getString(R.string.make_a_choice), Snackbar.LENGTH_SHORT)
             snackBar.view.setBackgroundColor(Color.RED)
             snackBar.show()
             return
         }
+    }
 
-        if(binding.checkBoxAnswer1.isChecked) {
-            viewModel.quiz.page[actualPage].question[0].answers[0].result =
-                binding.checkBoxAnswer1.text.toString()
-        } else {
-            viewModel.quiz.page[actualPage].question[0].answers[0].result = ""
-        }
-        if(binding.checkBoxAnswer2.isChecked) {
-            viewModel.quiz.page[actualPage].question[0].answers[1].result =
-                binding.checkBoxAnswer2.text.toString()
-        } else {
-            viewModel.quiz.page[actualPage].question[0].answers[1].result = ""
-        }
-        if(binding.checkBoxAnswer3.isChecked) {
-            viewModel.quiz.page[actualPage].question[0].answers[2].result =
-                binding.checkBoxAnswer3.text.toString()
-        } else {
-            viewModel.quiz.page[actualPage].question[0].answers[2].result = ""
-        }
-        if(binding.checkBoxAnswer4.isChecked) {
-            viewModel.quiz.page[actualPage].question[0].answers[3].result =
-                binding.checkBoxAnswer4.text.toString()
-        } else {
-            viewModel.quiz.page[actualPage].question[0].answers[3].result = ""
-        }
-        if(binding.checkBoxAnswer5.isChecked) {
-            viewModel.quiz.page[actualPage].question[0].answers[4].result =
-                binding.checkBoxAnswer5.text.toString()
-        } else {
-            viewModel.quiz.page[actualPage].question[0].answers[4].result = ""
-        }
-        if(binding.checkBoxAnswer6.isChecked) {
-            viewModel.quiz.page[actualPage].question[0].answers[5].result =
-                binding.checkBoxAnswer6.text.toString()
-        } else {
-            viewModel.quiz.page[actualPage].question[0].answers[5].result = ""
-        }
-        if(binding.checkBoxAnswer7.isChecked) {
-            viewModel.quiz.page[actualPage].question[0].answers[6].result =
-                binding.checkBoxAnswer7.text.toString()
-        } else {
-            viewModel.quiz.page[actualPage].question[0].answers[6].result = ""
-        }
-        if(binding.checkBoxAnswer8.isChecked) {
-            viewModel.quiz.page[actualPage].question[0].answers[7].result =
-                binding.checkBoxAnswer8.text.toString()
-        } else {
-            viewModel.quiz.page[actualPage].question[0].answers[7].result = ""
-        }
-        if(binding.checkBoxAnswer9.isChecked) {
-            viewModel.quiz.page[actualPage].question[0].answers[8].result =
-                binding.checkBoxAnswer9.text.toString()
-        } else {
-            viewModel.quiz.page[actualPage].question[0].answers[8].result = ""
-        }
-        if(binding.checkBoxAnswer10.isChecked) {
-            viewModel.quiz.page[actualPage].question[0].answers[9].result =
-                binding.checkBoxAnswer10.text.toString()
-        } else {
-            viewModel.quiz.page[actualPage].question[0].answers[9].result = ""
+    private fun navigateToNextPage() {
+
+        var counter = 0
+        binding.linearLayout.forEach {
+            if (it is MaterialCheckBox) {
+                if (it.isChecked) {
+                    viewModel.quiz.page[actualPage].question[0].answers[counter].result =
+                        it.text.toString()
+                } else {
+                    viewModel.quiz.page[actualPage].question[0].answers[counter].result = ""
+                }
+                counter++
+            }
         }
 
         viewModel.onClickButtonPage3toResult()

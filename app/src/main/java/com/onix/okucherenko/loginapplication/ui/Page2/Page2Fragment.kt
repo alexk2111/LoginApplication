@@ -3,10 +3,15 @@ package com.onix.okucherenko.loginapplication.ui.Page2
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
+import androidx.core.view.children
+import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.radiobutton.MaterialRadioButton
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textview.MaterialTextView
 import com.onix.okucherenko.loginapplication.R
 import com.onix.okucherenko.loginapplication.databinding.FragmentPage2Binding
 
@@ -31,25 +36,32 @@ class Page2Fragment : Fragment(R.layout.fragment_page2) {
 
         actualPage = viewModel.actualPage
 
-        binding.textViewQuestionContent.text = viewModel.quiz.page[actualPage].question[0].content
-
-        binding.radioButtonAnswer1.text =
-            viewModel.quiz.page[actualPage].question[0].answers[0].content
-        binding.radioButtonAnswer2.text =
-            viewModel.quiz.page[actualPage].question[0].answers[1].content
-        binding.radioButtonAnswer3.text =
-            viewModel.quiz.page[actualPage].question[0].answers[2].content
-        binding.radioButtonAnswer4.text =
-            viewModel.quiz.page[actualPage].question[0].answers[3].content
-        binding.radioButtonAnswer5.text =
-            viewModel.quiz.page[actualPage].question[0].answers[4].content
+        updateViewText(binding.page2ConstraintLayout, 0)
 
         binding.buttonPage2toPage3.setOnClickListener {
             onClickButtonPage2toPage3()
         }
-
-
     }
+
+    private fun updateViewText(view: View, numberAnswer: Int): Int {
+        var localNumberAnswer = numberAnswer
+        if (view is ViewGroup) {
+            view.children.forEach { localNumberAnswer = updateViewText(it, localNumberAnswer) }
+
+        } else {
+            when (view) {
+                is MaterialTextView -> view.text =
+                    viewModel.quiz.page[actualPage].question[0].content
+                is MaterialRadioButton -> {
+                    view.text =
+                        viewModel.quiz.page[actualPage].question[0].answers[numberAnswer].content
+                    localNumberAnswer++
+                }
+            }
+        }
+        return localNumberAnswer
+    }
+
 
     private fun onClickButtonPage2toPage3() {
 
@@ -60,41 +72,23 @@ class Page2Fragment : Fragment(R.layout.fragment_page2) {
             !binding.radioButtonAnswer5.isChecked
         ) {
             val snackBar = Snackbar
-                .make(binding.root, "Make a choice!!!", Snackbar.LENGTH_SHORT)
+                .make(binding.root, getString(R.string.make_a_choice), Snackbar.LENGTH_SHORT)
             snackBar.view.setBackgroundColor(Color.RED)
             snackBar.show()
             return
         }
 
-        if (binding.radioButtonAnswer1.isChecked) {
-            viewModel.quiz.page[actualPage].question[0].answers[0].result =
-                binding.radioButtonAnswer1.text.toString()
-        } else {
-            viewModel.quiz.page[actualPage].question[0].answers[0].result = ""
-        }
-        if (binding.radioButtonAnswer2.isChecked) {
-            viewModel.quiz.page[actualPage].question[0].answers[1].result =
-                binding.radioButtonAnswer2.text.toString()
-        } else {
-            viewModel.quiz.page[actualPage].question[0].answers[1].result = ""
-        }
-        if (binding.radioButtonAnswer3.isChecked) {
-            viewModel.quiz.page[actualPage].question[0].answers[2].result =
-                binding.radioButtonAnswer3.text.toString()
-        } else {
-            viewModel.quiz.page[actualPage].question[0].answers[2].result = ""
-        }
-        if (binding.radioButtonAnswer4.isChecked) {
-            viewModel.quiz.page[actualPage].question[0].answers[3].result =
-                binding.radioButtonAnswer4.text.toString()
-        } else {
-            viewModel.quiz.page[actualPage].question[0].answers[3].result = ""
-        }
-        if (binding.radioButtonAnswer5.isChecked) {
-            viewModel.quiz.page[actualPage].question[0].answers[4].result =
-                binding.radioButtonAnswer5.text.toString()
-        } else {
-            viewModel.quiz.page[actualPage].question[0].answers[4].result = ""
+        var counter = 0
+        binding.radioGroup.forEach {
+            if (it is MaterialRadioButton) {
+                if (it.isChecked) {
+                    viewModel.quiz.page[actualPage].question[0].answers[counter].result =
+                        it.text.toString()
+                } else {
+                    viewModel.quiz.page[actualPage].question[0].answers[counter].result = ""
+                }
+                counter++
+            }
         }
 
         viewModel.onClickButtonPage2toPage3()

@@ -50,7 +50,7 @@ class Page1Fragment : Fragment(R.layout.fragment_page1) {
             binding.editTextAge.text.isEmpty()
         ) {
             val snackBar = Snackbar
-                .make(binding.root, "All fields must be completed!!!", Snackbar.LENGTH_SHORT)
+                .make(binding.root, getString(R.string.error_must_be_completed), Snackbar.LENGTH_SHORT)
             snackBar.view.setBackgroundColor(Color.RED)
             snackBar.show()
             return

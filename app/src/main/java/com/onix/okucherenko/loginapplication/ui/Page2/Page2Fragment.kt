@@ -3,7 +3,6 @@ package com.onix.okucherenko.loginapplication.ui.Page2
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
@@ -31,6 +30,8 @@ class Page2Fragment : Fragment(R.layout.fragment_page2) {
         viewModel = ViewModelProvider(this, viewModelFactory)[Page2ViewModel::class.java]
 
         actualPage = viewModel.actualPage
+
+        binding.textViewQuestionContent.text = viewModel.quiz.page[actualPage].question[0].content
 
         binding.radioButtonAnswer1.text =
             viewModel.quiz.page[actualPage].question[0].answers[0].content

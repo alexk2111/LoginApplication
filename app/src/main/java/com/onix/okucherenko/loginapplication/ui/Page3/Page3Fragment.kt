@@ -3,7 +3,6 @@ package com.onix.okucherenko.loginapplication.ui.Page3
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
@@ -32,7 +31,7 @@ class Page3Fragment : Fragment(R.layout.fragment_page3) {
 
         actualPage = viewModel.actualPage
 
-        binding.textView.text = viewModel.quiz.page[actualPage].question[0].content
+        binding.textViewContext.text = viewModel.quiz.page[actualPage].question[0].content
 
         binding.checkBoxAnswer1.text = viewModel.quiz.page[actualPage].question[0].answers[0].content
         binding.checkBoxAnswer2.text = viewModel.quiz.page[actualPage].question[0].answers[1].content

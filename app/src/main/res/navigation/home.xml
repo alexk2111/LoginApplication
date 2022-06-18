@@ -8,5 +8,26 @@
         android:id="@+id/splashFragment"
         android:name="com.onix.internship.ui.splash.SplashFragment"
         android:label="SplashFragment" />
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.onix.internship.ui.start.StartFragment"
+        android:label="StartFragment" >
+        <action
+            android:id="@+id/action_startFragment_to_gameFragment"
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/startFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.onix.internship.ui.game.GameFragment"
+        android:label="GameFragment" >
+        <argument
+            android:name="firstStep"
+            app:argType="string" />
+        <argument
+            android:name="userChip"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="startViewModel"
+            type="com.onix.internship.ui.start.StartViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.start.StartFragment">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/textViewFirstStep"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:text="@string/first_step" />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp">
+
+                <RadioButton
+                    android:id="@+id/radioButtonUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> startViewModel.onClickFirstStepUser()}"
+                    android:text="@string/radiobutton_user" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonDevice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> startViewModel.onClickFirstStepDevice()}"
+                    android:text="@string/radiobutton_device" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textViewUserChip"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:text="@string/chip" />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp">
+
+                <RadioButton
+                    android:id="@+id/radioButtonUserChipX"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> startViewModel.onClickUserChipX()}"
+                    android:text="@string/radiobutton_user_chip_x" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonButtonUserChipO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> startViewModel.onClickUserChipO()}"
+                    android:text="@string/radiobutton_user_chip_o" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_start_game"
+                android:onClick="@{() -> startViewModel.onStartGame()}"
+                android:layout_gravity="center_horizontal"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </FrameLayout>
+</layout>

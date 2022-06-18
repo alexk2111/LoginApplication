@@ -1,3 +1,21 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Internship Onix</string>
+
+    <string name="auth_user_name_hint">Enter your nae</string>
+    <string name="auth_email_hint">Enter email</string>
+    <string name="auth_pass_hint">Enter password</string>
+    <string name="auth_login">LogIn</string>
+
+    <string name="title_messages">Messages</string>
+    <string name="text_string">Test text string</string>
+    <string name="hello_blank_fragment">Hello</string>
+    <string name="button_start_game">Start Game</string>
+    <string name="chip">User Chip</string>
+    <string name="first_step">First Step</string>
+    <string name="radiobutton_device">Device</string>
+    <string name="radiobutton_user">User</string>
+    <string name="radiobutton_user_chip_x">X</string>
+    <string name="radiobutton_user_chip_o">O</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
 </resources>

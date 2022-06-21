@@ -3,7 +3,7 @@
     package="com.onix.internship">
 
     <application
-        android:name=".InternshipApp"
+        android:name=".okucherenko.InternshipApp"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.internship">
         <activity
-            android:name=".ui.main.MainScreen"
+            android:name="com.onix.internship.okucherenko.ui.main.MainScreen"
             android:screenOrientation="sensor"
             android:configChanges="orientation"
             android:windowSoftInputMode="stateHidden"

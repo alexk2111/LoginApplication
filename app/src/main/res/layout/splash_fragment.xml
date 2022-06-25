@@ -5,13 +5,13 @@
     >
 
     <data>
-        <import type="com.onix.internship.R"/>
+        <import type="com.onix.internship.okucherenko.R"/>
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".okucherenko.ui.splash.CanvasFragment">
+        tools:context=".ui.splash.CanvasFragment">
 
         <ImageView
             android:layout_width="wrap_content"

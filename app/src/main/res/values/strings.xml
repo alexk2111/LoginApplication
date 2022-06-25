@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Internship lessons</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="button_add">Add</string>
+    <string name="button_remove">Remove</string>
+    <string name="error_rationale">Continue not possible</string>
+    <string name="rationale_permission">Without this permission, the program cannot be continued.</string>
+    <string name="point_info">Access point Info</string>
 </resources>

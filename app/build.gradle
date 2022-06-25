@@ -11,7 +11,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.onix.internship"
+        applicationId "com.onix.internship.okucherenko"
         minSdk 23
         targetSdk 31
         versionCode 1
@@ -36,10 +36,11 @@ android {
     buildFeatures {
         dataBinding = true
     }
-    namespace 'com.onix.internship'
+    namespace 'com.onix.internship.okucherenko'
 }
 
 dependencies {
+    def fragment_version = "1.4.1"
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
@@ -48,6 +49,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    implementation("androidx.fragment:fragment-ktx:$fragment_version")
 
     implementation("androidx.navigation:navigation-fragment-ktx:2.4.2")
     implementation("androidx.navigation:navigation-ui-ktx:2.4.2")

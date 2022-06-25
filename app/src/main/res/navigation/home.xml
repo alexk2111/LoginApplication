@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home"
     app:startDestination="@id/splashFragment">
 
@@ -8,5 +9,10 @@
         android:id="@+id/splashFragment"
         android:name="com.onix.internship.okucherenko.ui.splash.SplashFragment"
         android:label="SplashFragment" />
+    <fragment
+        android:id="@+id/managerFragment"
+        android:name="com.onix.internship.okucherenko.ui.wifimanager.ManagerFragment"
+        android:label="manager_fragment"
+        tools:layout="@layout/manager_fragment" />
 
 </navigation>

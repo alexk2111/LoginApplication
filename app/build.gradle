@@ -11,7 +11,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.onix.internship"
+        applicationId "com.onix.internship.okucherenko"
         minSdk 23
         targetSdk 31
         versionCode 1
@@ -36,7 +36,7 @@ android {
     buildFeatures {
         dataBinding = true
     }
-    namespace 'com.onix.internship'
+    namespace 'com.onix.internship.okucherenko'
 }
 
 dependencies {

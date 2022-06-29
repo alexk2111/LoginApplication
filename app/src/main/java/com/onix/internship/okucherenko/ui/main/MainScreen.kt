@@ -4,9 +4,9 @@ import android.content.Intent
 import android.content.res.Configuration
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.onix.internship.R
+import com.onix.internship.okucherenko.R
 import com.onix.internship.okucherenko.arch.BaseActivity
-import com.onix.internship.databinding.ActivityMainBinding
+import com.onix.internship.okucherenko.databinding.ActivityMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainScreen : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {

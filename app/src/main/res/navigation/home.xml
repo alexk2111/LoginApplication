@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home"
     app:startDestination="@id/splashFragment">
 
@@ -8,5 +9,19 @@
         android:id="@+id/splashFragment"
         android:name="com.onix.internship.okucherenko.ui.splash.SplashFragment"
         android:label="SplashFragment" />
+    <fragment
+        android:id="@+id/translationFragment"
+        android:name="com.onix.internship.okucherenko.ui.translator.TranslationFragment"
+        android:label="translation_fragment"
+        tools:layout="@layout/translation_fragment" />
+    <fragment
+        android:id="@+id/listoftranslationsFragment"
+        android:name="com.onix.internship.okucherenko.ui.listoftranslations.ListoftranslationsFragment"
+        android:label="listoftranslations_fragment"
+        tools:layout="@layout/listoftranslations_fragment" >
+        <argument
+            android:name="result"
+            app:argType="string[]" />
+    </fragment>
 
 </navigation>

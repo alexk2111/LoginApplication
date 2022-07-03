@@ -1,5 +1,7 @@
 package com.onix.internship.okucherenko.ui.splash
 
+import android.os.Bundle
+import android.view.View
 import com.onix.internship.okucherenko.R
 import com.onix.internship.okucherenko.arch.BaseFragment
 import com.onix.internship.okucherenko.arch.ext.navigate
@@ -16,8 +18,12 @@ class SplashFragment : BaseFragment<SplashFragmentBinding>(R.layout.splash_fragm
         }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.context = requireContext()
+    }
     private fun showLogInScreen() {
-        navigate(R.id.splashFragment, clearStack = true)
+        navigate(R.id.translationFragment, clearStack = true)
     }
 
 }

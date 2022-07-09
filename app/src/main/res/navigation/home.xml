@@ -7,6 +7,88 @@
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.onix.internship.okucherenko.ui.splash.SplashFragment"
-        android:label="SplashFragment" />
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_lecturehallFragment"
+            app:destination="@id/lecturehallFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/lecturehallFragment"
+        android:name="com.onix.internship.okucherenko.ui.lecturehall.LecturehallFragment"
+        android:label="LecturehallFragment" >
+        <action
+            android:id="@+id/action_lecturehallFragment_to_uniFragment"
+            app:destination="@id/uniFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popUpTo="@id/lecturehallFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/uniFragment"
+        android:name="com.onix.internship.okucherenko.ui.uni.UniFragment"
+        android:label="UniFragment" >
+        <action
+            android:id="@+id/action_uniFragment_to_meadowFragment"
+            app:destination="@id/meadowFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popUpTo="@id/uniFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_uniFragment_to_blackFragment"
+            app:destination="@id/blackFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popUpTo="@id/uniFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/meadowFragment"
+        android:name="com.onix.internship.okucherenko.ui.meadow.MeadowFragment"
+        android:label="MeadowFragment" >
+        <action
+            android:id="@+id/action_meadowFragment_to_blackFragment"
+            app:destination="@id/blackFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popUpTo="@id/meadowFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/blackFragment"
+        android:name="com.onix.internship.okucherenko.ui.black.BlackFragment"
+        android:label="BlackFragment" >
+        <action
+            android:id="@+id/action_blackFragment_to_lecturehallFragment"
+            app:destination="@id/lecturehallFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popUpTo="@id/blackFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_blackFragment_to_clubFragment"
+            app:destination="@id/clubFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popUpTo="@id/blackFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/clubFragment"
+        android:name="com.onix.internship.okucherenko.ui.club.ClubFragment"
+        android:label="ClubFragment" >
+        <action
+            android:id="@+id/action_clubFragment_to_blackFragment"
+            app:destination="@id/blackFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popUpTo="@id/clubFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>

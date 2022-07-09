@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="clubViewModel"
+            type="com.onix.internship.okucherenko.ui.club.ClubViewModel" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_meadow"
+        android:onClick="@{() -> clubViewModel.nextMessage()}"
+        tools:context=".ui.club.ClubFragment">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="invisible"
+            android:src="@drawable/sylvie_blue_normal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:gravity="center_horizontal|center_vertical"
+            android:background="@color/black_alpha"
+            android:textColor="@color/white"
+            android:text="@{clubViewModel.texMessage}" />
+
+    </FrameLayout>
+</layout>

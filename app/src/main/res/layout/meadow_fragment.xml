@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="meadowViewModel"
+            type="com.onix.internship.okucherenko.ui.meadow.MeadowViewModel" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_meadow"
+        android:onClick="@{() -> meadowViewModel.nextMessage()}"
+        tools:context=".ui.meadow.MeadowFragment">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="invisible"
+            android:src="@drawable/sylvie_green_smile" />
+
+        <LinearLayout
+            android:id="@+id/layoutMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="70dp"
+            android:layout_marginEnd="70dp"
+            android:visibility="invisible">
+
+            <Button
+                android:id="@+id/buttonContinue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:backgroundTint="@null"
+                android:background="@android:color/black"
+                android:textColor="@android:color/white"
+                android:text="@{meadowViewModel.meadowMenuArray[1]}"
+                android:onClick="@{() -> meadowViewModel.onClickGame()}"
+                />
+
+            <Button
+                android:id="@+id/buttonExit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:backgroundTint="@null"
+                android:background="@android:color/black"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="10dp"
+                android:text="@{meadowViewModel.meadowMenuArray[2]}"
+                android:onClick="@{() -> meadowViewModel.onClickBook()}"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:gravity="center_horizontal|center_vertical"
+            android:background="@color/black_alpha"
+            android:textColor="@color/white"
+            android:text="@{meadowViewModel.texMessage}" />
+
+
+    </FrameLayout>
+</layout>

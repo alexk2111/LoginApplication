@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="uniViewModel"
+            type="com.onix.internship.okucherenko.ui.uni.UniViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_uni"
+        android:onClick="@{() -> uniViewModel.nextMessage()}"
+        tools:context=".ui.uni.UniFragment">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="invisible"
+            android:src="@drawable/sylvie_green_normal" />
+        <LinearLayout
+            android:id="@+id/layoutMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="70dp"
+            android:layout_marginEnd="70dp"
+            android:visibility="invisible">
+
+            <Button
+                android:id="@+id/buttonContinue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:backgroundTint="@null"
+                android:background="@android:color/black"
+                android:textColor="@android:color/white"
+                android:text="@{uniViewModel.uniMenuArray[0]}"
+                android:onClick="@{() -> uniViewModel.onClickContinue()}"
+                />
+
+            <Button
+                android:id="@+id/buttonExit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:backgroundTint="@null"
+                android:background="@android:color/black"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="10dp"
+                android:text="@{uniViewModel.uniMenuArray[1]}"
+                android:onClick="@{() -> uniViewModel.onClickExit()}"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:gravity="center_horizontal|center_vertical"
+            android:background="@color/black_alpha"
+            android:textColor="@color/white"
+            android:text="@{uniViewModel.texMessage}" />
+
+    </FrameLayout>
+</layout>

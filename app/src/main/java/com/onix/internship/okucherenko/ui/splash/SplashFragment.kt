@@ -1,8 +1,8 @@
 package com.onix.internship.okucherenko.ui.splash
 
+import androidx.navigation.fragment.findNavController
 import com.onix.internship.okucherenko.R
 import com.onix.internship.okucherenko.arch.BaseFragment
-import com.onix.internship.okucherenko.arch.ext.navigate
 import com.onix.internship.okucherenko.databinding.SplashFragmentBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -17,7 +17,9 @@ class SplashFragment : BaseFragment<SplashFragmentBinding>(R.layout.splash_fragm
     }
 
     private fun showLogInScreen() {
-        navigate(R.id.splashFragment, clearStack = true)
+        val action = SplashFragmentDirections.actionSplashFragmentToLecturehallFragment()
+        findNavController().navigate(action)
+//        navigate(R.id.splashFragment, clearStack = true)
     }
 
 }

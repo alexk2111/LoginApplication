@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="lecturehallViewModel"
+            type="com.onix.internship.okucherenko.ui.lecturehall.LecturehallViewModel" />
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLecturehall"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.lecturehall.LecturehallFragment">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_lecturehall"
+            android:onClick="@{() -> lecturehallViewModel.nextMessage()}">
+
+            <TextView
+                android:id="@+id/texViewMessage"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom"
+                android:background="@color/black_alpha"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@{lecturehallViewModel.textMessage}"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/buttonMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Menu" />
+
+        </FrameLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navLecturehall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:menu="@menu/nav_menu" />
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

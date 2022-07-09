@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="blackViewModel"
+            type="com.onix.internship.okucherenko.ui.black.BlackViewModel" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:onClick="@{() -> blackViewModel.nextMessage()}"
+        tools:context=".ui.black.BlackFragment">
+
+        <LinearLayout
+            android:id="@+id/layoutMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="70dp"
+            android:layout_marginEnd="70dp"
+            android:visibility="invisible">
+
+            <Button
+                android:id="@+id/buttonContinue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:backgroundTint="@null"
+                android:background="@android:color/white"
+                android:textColor="@android:color/black"
+                android:text="@{blackViewModel.blackMenuArray[1]}"
+                android:onClick="@{() -> blackViewModel.onClickContinue()}"
+                />
+
+            <Button
+                android:id="@+id/buttonExit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:backgroundTint="@null"
+                android:background="@android:color/white"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="10dp"
+                android:text="@{blackViewModel.blackMenuArray[2]}"
+                android:onClick="@{() -> blackViewModel.onClickExit()}"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:gravity="center_horizontal|center_vertical"
+            android:background="@color/black_alpha"
+            android:textColor="@color/white"
+            android:text="@{blackViewModel.texMessage}" />
+
+    </FrameLayout>
+</layout>

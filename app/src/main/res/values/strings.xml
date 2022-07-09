@@ -1,3 +1,125 @@
 <resources>
     <string name="app_name">Internship lessons. Lesson 6</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="lecturehall_scene">
+        <item>It\'s only when I hear the sounds of shuffling feet and supplies being put away that I realize that the lecture\'s over.</item>
+        <item>Professor Eileen\'s lectures are usually interesting, but today I just couldn\'t concentrate on it.</item>
+        <item>I\'ve had a lot of other thoughts on my mind…thoughts that culminate in a question.</item>
+        <item>It\'s a question that I\'ve been meaning to ask a certain someone.</item>
+    </string-array>
+
+    <string-array name="uni_scene">
+        <item>When we come out of the university, I spot her right away.</item>
+        <item>I\'ve known Sylvie since we were kids. She\'s got a big heart and she\'s always been a good friend to me.</item>
+        <item>But recently… I\'ve felt that I want something more.</item>
+        <item>More than just talking, more than just walking home together when our classes end.</item>
+        <item>As soon as she catches my eye, I decide…</item>
+    </string-array>
+
+    <string-array name="uni_menu">
+        <item>To ask her right away.</item>
+        <item>To ask her later.</item>
+    </string-array>
+
+    <string-array name="uni_rightaway">
+        <item>Sylvie\n        Hi there! How was class?</item>
+        <item>ME\n     Good…</item>
+        <item>I can\'t bring myself to admit that it all went in one ear and out the other.</item>
+        <item>ME\n     Are you going home now? Wanna walk back with me?</item>
+        <item>Sylvie\n      Sure!</item>
+    </string-array>
+
+    <string-array name="uni_later">
+        <item>I can\'t get up the nerve to ask right now. With a gulp, I decide to ask her later.</item>
+    </string-array>
+
+    <string-array name="meadow_scene">
+        <item>After a short while, we reach the meadows just outside the neighborhood where we both live.</item>
+        <item>It\'s a scenic view I\'ve grown used to. Autumn is especially beautiful here.</item>
+        <item>When we were children, we played in these meadows a lot, so they\'re full of memories.</item>
+        <item>Me\n    Hey… Umm…</item>
+        <item>She turns to me and smiles. She looks so welcoming that I feel my nervousness melt away.</item>
+        <item>I\'ll ask her…!</item>
+        <item>Me\n    Ummm… Will you…</item>
+        <item>Me\n    Will you be my artist for a visual novel?</item>
+        <item>Silence.</item>
+        <item>She looks so shocked that I begin to fear the worst. But then…</item>
+    </string-array>
+
+    <string-array name="meadow_menu">
+        <item>Sylvie\n Sure, but what\'s a \"visual novel?\"</item>
+        <item>It\'s a videogame.</item>
+        <item>It\'s an interactive book.</item>
+    </string-array>
+
+    <string-array name="meadow_game">
+        <item>Me\n    It\'s a kind of videogame you can play on your computer or a console.</item>
+        <item>Me\n    Visual novels tell a story with pictures and music.</item>
+        <item>Me\n    Sometimes, you also get to make choices that affect the outcome of the story.</item>
+        <item>Sylvie\n So it\'s like those choose-your-adventure books?</item>
+        <item>Me\n    Exactly! I\'ve got lots of different ideas that I think would work</item>
+        <item>Me\n    And I thought maybe you could help me…since I know how you like to draw.</item>
+        <item>Me\n    It\'d be hard for me to make a visual novel alone</item>
+        <item>Sylvie\n Well, sure! I can try. I just hope I don\'t disappoint you.</item>
+        <item>Me\n You know you could never disappoint me, Sylvie.</item>
+    </string-array>
+
+    <string-array name="meadow_book">
+        <item>Me\n "It\'s like an interactive book that you can read on a computer or a console.</item>
+        <item>Sylvie\n Interactive</item>
+        <item>Me\n You can make choices that lead to different events and endings in the story.</item>
+        <item>Sylvie\n So where does the \"visual\" part come in?</item>
+        <item>Me\n Visual novels have pictures and even music, sound effects, and sometimes voice acting to go along with the text.</item>
+        <item>Sylvie\n I see! That certainly sounds like fun. I actually used to make webcomics way back when, so I\'ve got lots of story ideas.</item>
+        <item>Me\n That\'s great! So…would you be interested in working with me as an artist?</item>
+        <item>Sylvie\n I\'d love to!</item>
+    </string-array>
+
+    <string-array name="black_later">
+        <item>But I\'m an indecisive person</item>
+        <item>I couldn\'t ask her that day and I end up never being able to ask her.</item>
+        <item>I guess I\'ll never know the answer to my question now…</item>
+        <item>Bad Ending</item>
+    </string-array>
+
+    <string-array name="black_marry">
+        <item>And so, we become a visual novel creating duo.</item>
+    </string-array>
+
+    <string-array name="black_marry_end">
+        <item>We get married shortly after that.</item>
+        <item>Our visual novel duo lives on even after we\'re married…and I try my best to be more decisive.</item>
+        <item>Together, we live happily ever after even now.</item>
+        <item>Good Ending</item>
+    </string-array>
+
+    <string-array name="club_scene">
+        <item>Over the years, we make lots of games and have a lot of fun making them.</item>
+        <item>Our first game is based on one of Sylvie\'s ideas, but afterwards I get to come up with stories of my own, too.</item>
+        <item>We take turns coming up with stories and characters and support each other to make some great games!</item>
+        <item>And one day…</item>
+        <item>Sylvie\n   Hey…</item>
+        <item>Me\n Yes?</item>
+        <item>Sylvie\n Will you marry me?</item>
+        <item>Me\n What? Where did this come from?</item>
+        <item>Sylvie\n Come on, how long have we been dating?</item>
+        <item>Me\n A while…</item>
+        <item>Sylvie\n  These last few years we\'ve been making visual novels together, spending time together, helping each other…</item>
+        <item>Sylvie\n   I\'ve gotten to know you and care about you better than anyone else. And I think the same goes for you, right?</item>
+        <item>Me\n Sylvie…</item>
+        <item>Sylvie\n But I know you\'re the indecisive type. If I held back, who knows when you\'d propose?</item>
+        <item>Sylvie\n So will you marry me?</item>
+        <item>Me\n Of course I will! I\'ve actually been meaning to propose, honest!</item>
+        <item>Sylvie\n I know, I know.</item>
+        <item>Me\n I guess… I was too worried about timing. I wanted to ask the right question at the right time.</item>
+        <item>Sylvie\n You worry too much. If only this were a visual novel and I could pick an option to give you more courage!</item>
+    </string-array>
+
+    <string-array name="black_menu">
+        <item>GameOver</item>
+        <item>Restart</item>
+        <item>Exit</item>
+    </string-array>
+
 </resources>

@@ -12,7 +12,7 @@
         android:theme="@style/Theme.internship">
         <activity
             android:name="com.onix.internship.okucherenko.ui.main.MainScreen"
-            android:screenOrientation="sensor"
+            android:screenOrientation="sensorLandscape"
             android:configChanges="orientation"
             android:windowSoftInputMode="stateHidden"
             android:exported="true">
@@ -21,6 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".media.MediaService"
+            android:enabled="true">
+        </service>
 
     </application>
 

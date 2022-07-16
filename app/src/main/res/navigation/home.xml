@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/taskFragment">
 
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.onix.internship.okucherenko.ui.splash.SplashFragment"
         android:label="SplashFragment" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.onix.internship.okucherenko.ui.home.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" />
+    <fragment
+        android:id="@+id/taskFragment"
+        android:name="com.onix.internship.okucherenko.ui.task.TaskFragment"
+        android:label="task_fragment"
+        tools:layout="@layout/task_fragment" />
+    <fragment
+        android:id="@+id/activityFragment"
+        android:name="com.onix.internship.okucherenko.ui.graphic.GraphicFragment"
+        android:label="activity_fragment"
+        tools:layout="@layout/graphic_fragment" />
+    <fragment
+        android:id="@+id/folderFragment"
+        android:name="com.onix.internship.okucherenko.ui.profile.ProfileFragment"
+        android:label="folder_fragment"
+        tools:layout="@layout/profile_fragment" />
 
 </navigation>

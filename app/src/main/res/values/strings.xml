@@ -1,3 +1,18 @@
 <resources>
-    <string name="app_name">Internship lessons.Lesson 7.</string>
+    <string name="app_name">Internship lessons. Lesson 7.</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="today">Today</string>
+    <string name="schedule_message">You don\’t have any schedule today.\n Tap the plus button to create new to-do.</string>
+    <string name="add_task">Add Task</string>
+    <string name="add_task_title">Title</string>
+    <string name="date">Date</string>
+    <string-array name="week_days_name">
+        <item>MO</item>
+        <item>TU</item>
+        <item>WE</item>
+        <item>TH</item>
+        <item>FR</item>
+        <item>SA</item>
+        <item>SU</item>
+    </string-array>
 </resources>

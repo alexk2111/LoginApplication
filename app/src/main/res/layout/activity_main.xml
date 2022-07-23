@@ -26,5 +26,13 @@
 
         </View>
 
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:visibility="gone"
+            app:menu="@menu/basic_menu" />
+
     </FrameLayout>
 </layout>

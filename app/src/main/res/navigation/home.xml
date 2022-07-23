@@ -2,11 +2,51 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/home"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/ageFragment">
 
     <fragment
-        android:id="@+id/splashFragment"
-        android:name="com.onix.internship.okucherenko.ui.splash.SplashFragment"
-        android:label="SplashFragment" />
+        android:id="@+id/ageFragment"
+        android:name="com.onix.internship.okucherenko.ui.age.AgeFragment"
+        android:label="AgeFragment" >
+        <action
+            android:id="@+id/action_ageFragment_to_levelFragment"
+            app:destination="@id/levelFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/levelFragment"
+        android:name="com.onix.internship.okucherenko.ui.level.LevelFragment"
+        android:label="LevelFragment" >
+        <action
+            android:id="@+id/action_levelFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_levelFragment_to_ageFragment"
+            app:destination="@id/ageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.onix.internship.okucherenko.ui.category.CategoryFragment"
+        android:label="CategoryFragment" >
+        <action
+            android:id="@+id/action_categoryFragment_to_levelFragment"
+            app:destination="@id/levelFragment" />
+        <action
+            android:id="@+id/action_categoryFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.onix.internship.okucherenko.ui.map.MapFragment"
+        android:label="MapFragment" />
+    <fragment
+        android:id="@+id/pointsFragment"
+        android:name="com.onix.internship.okucherenko.ui.points.PointsFragment"
+        android:label="PointsFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.onix.internship.okucherenko.ui.settings.SettingsFragment"
+        android:label="SettingsFragment" />
 
 </navigation>

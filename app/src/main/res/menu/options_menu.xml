@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/byDate"
+        android:title="By date" />
+    <item android:id="@+id/byTitle"
+        android:title="By title" />
+    <item android:id="@+id/byColor"
+        android:title="By color" />
+    <item android:id="@+id/byContent"
+        android:title="By content" />
+</menu>

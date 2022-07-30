@@ -2,8 +2,12 @@ package com.onix.internship.okucherenko.ui.main
 
 import android.content.Intent
 import android.content.res.Configuration
+import android.os.Bundle
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import com.onix.internship.okucherenko.R
 import com.onix.internship.okucherenko.arch.BaseActivity
 import com.onix.internship.okucherenko.databinding.ActivityMainBinding
@@ -19,6 +23,8 @@ class MainScreen : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         navHostFragment.navController
     }
 
+    private lateinit var drawerLayout: DrawerLayout
+
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
     }
@@ -28,5 +34,18 @@ class MainScreen : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     }
 
     override fun setObservers() {}
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        drawerLayout = binding.drawerLayout
+        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+        NavigationUI.setupWithNavController(binding.navView, navController)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+//        return navController.navigateUp()
+        return NavigationUI.navigateUp(navController, drawerLayout)
+    }
+
 
 }

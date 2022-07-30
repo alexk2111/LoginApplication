@@ -2,11 +2,23 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/home"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/noteFragment">
 
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.onix.internship.okucherenko.ui.splash.SplashFragment"
         android:label="SplashFragment" />
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="com.onix.internship.okucherenko.ui.notelist.NoteFragment"
+        android:label="NoteFragment" />
+    <fragment
+        android:id="@+id/emergencyFragment"
+        android:name="com.onix.internship.okucherenko.ui.emergency.EmergencyFragment"
+        android:label="EmergencyFragment" />
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.onix.internship.okucherenko.ui.help.HelpFragment"
+        android:label="HelpFragment" />
 
 </navigation>

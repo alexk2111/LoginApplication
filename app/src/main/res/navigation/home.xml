@@ -2,11 +2,15 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/home"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/deviceslistFragment">
 
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.onix.internship.okucherenko.ui.splash.SplashFragment"
         android:label="SplashFragment" />
+    <fragment
+        android:id="@+id/deviceslistFragment"
+        android:name="com.onix.internship.okucherenko.ui.deviceslist.DeviceslistFragment"
+        android:label="DeviceslistFragment" />
 
 </navigation>

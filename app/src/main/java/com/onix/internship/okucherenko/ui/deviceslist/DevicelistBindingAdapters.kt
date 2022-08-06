@@ -1,6 +1,5 @@
 package com.onix.internship.okucherenko.ui.deviceslist
 
-import android.opengl.Visibility
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -11,19 +10,19 @@ import com.onix.internship.okucherenko.data.repository.entity.DeviceItem
 
 @BindingAdapter("userProgressBarVisible")
 fun ProgressBar.setUserProgressBarVisible(progressVisible: Boolean) {
-    if (progressVisible) {
-        visibility = View.VISIBLE
+    visibility = if (progressVisible) {
+        View.VISIBLE
     } else {
-        visibility = View.GONE
+        View.GONE
     }
 }
 
 @BindingAdapter("userTextViewVisible")
 fun TextView.setUserTextViewVisible(item: DeviceItem) {
-    if (item.value.contains("http")){
-        visibility = View.GONE
+    visibility = if (item.value.contains("http")){
+        View.GONE
     } else {
-        visibility = View.VISIBLE
+        View.VISIBLE
     }
 }
 

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.onix.internship.okucherenko.data.repository.entity.DeviceItem
 import com.onix.internship.okucherenko.databinding.DeviceItemBinding
 
-class DeviceListAdapter(val deviceItemListener: DeviceItemListener) : ListAdapter<DeviceItem, DeviceListAdapter.ViewHolder>(DeviceListDiffCallback()) {
+class DeviceListAdapter(private val deviceItemListener: DeviceItemListener) : ListAdapter<DeviceItem, DeviceListAdapter.ViewHolder>(DeviceListDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)

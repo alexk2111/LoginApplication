@@ -1,6 +1,6 @@
 package com.onix.internship.okucherenko.ui.deviceslist
 
-import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.onix.internship.okucherenko.R
 import com.onix.internship.okucherenko.arch.BaseFragment
@@ -17,26 +17,38 @@ class DeviceslistFragment : BaseFragment<DeviceslistFragmentBinding>(R.layout.de
 
     override fun setObservers() {
         super.setObservers()
-        binding.divicelistViewModel = viewModel
+        binding.devicelistViewModel = viewModel
         swipeRefreshLayout = binding.swipeRefreshLayout
         swipeRefreshLayout.setOnRefreshListener(this)
         binding.recyclerList.adapter = adapter
 
-        viewModel.progressVisible.observe(viewLifecycleOwner, Observer {
+        viewModel.progressVisible.observe(viewLifecycleOwner) {
             if (!it) {
                 swipeRefreshLayout.isRefreshing = it
             }
-        })
+        }
 
-        viewModel.devices.observe(viewLifecycleOwner, Observer {
+        viewModel.devices.observe(viewLifecycleOwner) {
             it?.let {
                 adapter.submitList(it.toList())
             }
-        })
+        }
+
+        viewModel.addNavigate.observe(viewLifecycleOwner) {
+            if (it) {
+                findNavController().navigate(DeviceslistFragmentDirections.actionDeviceslistFragmentToAdddeviceFragment())
+            }
+        }
+
+        viewModel.errorLoad.observe(viewLifecycleOwner) {
+            if (it) {
+                showToast(getString(R.string.error_load))
+            }
+        }
     }
 
     override fun onRefresh() {
-        viewModel.devicesFromSite(true)
+        viewModel.devicesFromSite()
     }
 
 

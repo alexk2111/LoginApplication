@@ -11,6 +11,15 @@
     <fragment
         android:id="@+id/deviceslistFragment"
         android:name="com.onix.internship.okucherenko.ui.deviceslist.DeviceslistFragment"
-        android:label="DeviceslistFragment" />
+        android:label="DeviceslistFragment" >
+        <action
+            android:id="@+id/action_deviceslistFragment_to_adddeviceFragment"
+            app:destination="@id/adddeviceFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <dialog
+        android:id="@+id/adddeviceFragment"
+        android:name="com.onix.internship.okucherenko.ui.adddevice.AdddeviceFragment"
+        android:label="AdddeviceFragment" />
 
 </navigation>

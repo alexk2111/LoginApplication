@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="divicelistViewModel"
+            name="devicelistViewModel"
             type="com.onix.internship.okucherenko.ui.deviceslist.DeviceslistViewModel" />
 
     </data>
@@ -20,7 +20,7 @@
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:userProgressBarVisible="@{divicelistViewModel.progressVisible}"
+            app:userProgressBarVisible="@{devicelistViewModel.progressVisible}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,6 +48,18 @@
 
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:onClick="@{() -> devicelistViewModel.addDevice()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@android:drawable/ic_input_add" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

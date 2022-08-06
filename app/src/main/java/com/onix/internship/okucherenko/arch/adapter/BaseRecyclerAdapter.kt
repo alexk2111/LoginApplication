@@ -6,7 +6,7 @@ import java.util.*
 
 abstract class BaseRecyclerAdapter<VH : RecyclerView.ViewHolder, E> : RecyclerView.Adapter<VH>() {
 
-    val adapterItems = ArrayList<E>()
+    private val adapterItems = ArrayList<E>()
 
     protected open fun getDiffCallback(newItems: List<E>): DiffUtil.Callback {
         return AbstractDiffCallback(newItems, adapterItems)

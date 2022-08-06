@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="device"
+            type="com.onix.internship.okucherenko.data.repository.entity.DeviceItem" />
+
+        <variable
+            name="adddeviceViewModel"
+            type="com.onix.internship.okucherenko.ui.adddevice.AdddeviceViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.adddevice.AdddeviceFragment">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/room"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextRoomName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:hint="@string/room_name"
+            android:text="@={adddeviceViewModel.newDevice.room}"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textViewTypeDevice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Type:"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <Spinner
+            android:id="@+id/spinnerType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/type_devices"
+            android:selectedItemPosition="@={adddeviceViewModel._typePosition}"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewTypeDevice"
+            app:layout_constraintStart_toStartOf="@+id/editTextRoomName"
+            app:layout_constraintTop_toTopOf="@+id/textViewTypeDevice" />
+
+        <TextView
+            android:id="@+id/textViewSubTypeDevice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Subtype:"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/textViewTypeDevice"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTypeDevice" />
+
+        <Spinner
+            android:id="@+id/spinnerSubType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/subtype_devices"
+            android:selectedItemPosition="@={adddeviceViewModel._subtypePosition}"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewSubTypeDevice"
+            app:layout_constraintStart_toStartOf="@+id/spinnerType"
+            app:layout_constraintTop_toTopOf="@+id/textViewSubTypeDevice" />
+
+        <Button
+            android:id="@+id/buttonAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="@string/add"
+            android:onClick="@{() -> adddeviceViewModel.onAdd()}"
+            app:layout_constraintEnd_toStartOf="@+id/buttonCancel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSubTypeDevice" />
+
+        <Button
+            android:id="@+id/buttonCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:onClick="@{() -> adddeviceViewModel.onCancel()}"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonAdd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/buttonAdd" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -2,11 +2,43 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/home"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/searchFragment">
 
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.onix.internship.okucherenko.ui.splash.SplashFragment"
         android:label="SplashFragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.onix.internship.okucherenko.ui.search.SearchFragment"
+        android:label="SearchFragment" />
+    <fragment
+        android:id="@+id/extendedFragment"
+        android:name="com.onix.internship.okucherenko.ui.search.extended.ExtendedFragment"
+        android:label="ExtendedFragment" >
+        <action
+            android:id="@+id/action_extendedFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/simpleFragment"
+        android:name="com.onix.internship.okucherenko.ui.search.simple.SimpleFragment"
+        android:label="SimpleFragment" >
+        <action
+            android:id="@+id/action_simpleFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.onix.internship.okucherenko.ui.result.ResultFragment"
+        android:label="ResultFragment" >
+        <action
+            android:id="@+id/action_resultFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.onix.internship.okucherenko.ui.details.DetailsFragment"
+        android:label="DetailsFragment" />
 
 </navigation>

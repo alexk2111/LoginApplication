@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">Internship lessons</string>
+    <string name="app_name">Internship lessons. Lesson12.</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="start">Start</string>
+    <string name="not_empty">Is not empty</string>
+    <string name="query">Query</string>
+    <string name="error_first_page">It\'s first page</string>
+    <string name="error_last_page">It\'s last page</string>
+    <string name="of">of</string>.
+
+    <string-array name="search_tab_item">
+        <item>Simple</item>
+        <item>Extended</item>
+    </string-array>
 </resources>

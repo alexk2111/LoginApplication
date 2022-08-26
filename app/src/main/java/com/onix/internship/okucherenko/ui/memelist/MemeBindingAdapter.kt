@@ -16,7 +16,7 @@ fun ProgressBar.setUserProgressBarVisible(progressVisible: Boolean) {
     }
 }
 
-@BindingAdapter("memeImage")
-fun ImageView.setMemeImage(item: Data) {
+@BindingAdapter("memeImageSrc")
+fun ImageView.setMemeImageSrc(item: Data) {
     Glide.with(this).load(item.image).into(this)
 }

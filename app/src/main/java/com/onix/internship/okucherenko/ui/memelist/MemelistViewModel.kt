@@ -24,32 +24,27 @@ class MemelistViewModel : BaseViewModel() {
     var nextPage = "http://alpha-meme-maker.herokuapp.com/1"
 
     init {
+        _progressVisible.value = true
         getMemes()
     }
 
-    private fun getMemes() {
+    fun getMemes() {
         viewModelScope.launch {
-            _progressVisible.value = true
             try {
-                val result = MemeApi.retrofitMemeService.getMemes(nextPage)
+                val result = MemeApi.retrofitMemeService.getMemes(1)
                 val resultList = mutableListOf<Data>()
                 resultList.addAll(result.data)
                 _memesList.value = resultList
             } catch (e: Exception) {
                 _error.value = "Failure: ${e.message}"
+                val sss = "{\"code\": 200,\"data\":[{\"ID\": 1,\"bottomText\": \"Good!\",\"image\": \"http://imgflip.com/s/meme/Grumpy-Cat.jpg\",\"name\": \"Grumpy Cat\",\"tags\": \"Tardar Sauce, Tabatha Bundesen, Felis domesticus\",\"topText\": \"\"},{\"ID\": 1,\"bottomText\": \"Good!\",\"image\": \"http://imgflip.com/s/meme/Grumpy-Cat.jpg\",\"name\": \"Grumpy Cat\",\"tags\": \"Tardar Sauce, Tabatha Bundesen, Felis domesticus\",\"topText\": \"TopText\"}],\"message\": \"GET successful\",\"next\": \"http://alpha-meme-maker.herokuapp.com/2\" }"
+                val result: MemePage = Gson().fromJson(sss,MemePage::class.java)
+                val resultList = mutableListOf<Data>()
+                resultList.addAll(result.data)
+                _memesList.value = resultList
             }
             _progressVisible.value = false
 
-            val sss = "{\"code\": 200,\"data\":[{\"ID\": 1,\"bottomText\": \"Good!\",\"image\": \"http://imgflip.com/s/meme/Grumpy-Cat.jpg\",\"name\": \"Grumpy Cat\",\"tags\": \"Tardar Sauce, Tabatha Bundesen, Felis domesticus\",\"topText\": \"\"}],\"message\": \"GET successful\",\"next\": \"http://alpha-meme-maker.herokuapp.com/2\" }"
-
-            val result: MemePage = Gson().fromJson(sss,MemePage::class.java)
-            val resultList = mutableListOf<Data>()
-            resultList.addAll(result.data)
-            _memesList.value = resultList
-
-
         }
-
     }
-
 }

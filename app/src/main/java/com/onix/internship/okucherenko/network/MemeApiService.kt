@@ -2,15 +2,13 @@ package com.onix.internship.okucherenko.network
 
 import com.google.gson.Gson
 import com.onix.internship.okucherenko.data.model.MemePage
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-//import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Url
+import retrofit2.http.Path
 
 private const val BASE_URL =
-    "https://android-kotlin-fun-mars-server.appspot.com"
+    "http://alpha-meme-maker.herokuapp.com"
 
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create(Gson()))
@@ -18,8 +16,8 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface MemeApiService {
-    @GET
-    suspend fun getMemes(@Url url: String): MemePage
+    @GET("/{page}")
+    suspend fun getMemes(@Path("page") page: Int): MemePage
 }
 
 object MemeApi {

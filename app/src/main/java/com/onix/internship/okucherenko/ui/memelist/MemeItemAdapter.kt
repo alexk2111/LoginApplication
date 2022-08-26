@@ -21,9 +21,8 @@ class MemeItemAdapter : ListAdapter<Data, MemeItemAdapter.ViewHolder>(MemeItemDi
 
     class ViewHolder private constructor(private val binding: MemeItemViewBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Data) {
-            val res = itemView.context.resources
-            binding.texViewTop.text = item.topText
-            binding.textViewBottom.text = item.bottomText
+            binding.item = item
+            binding.executePendingBindings()
         }
 
         companion object {

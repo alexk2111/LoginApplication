@@ -17,14 +17,19 @@
 
         <ImageView
             android:id="@+id/imageViewMeme"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:memeImage=""
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="w,16:9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:memeImageSrc="@{item}"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
@@ -37,12 +42,12 @@
             android:shadowDx="2"
             android:shadowDy="2"
             android:shadowRadius="2"
-            android:text="Privet"
+            android:text="@{item.topText}"
             android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/imageViewMeme" />
 
         <TextView
             android:id="@+id/textViewBottom"
@@ -54,10 +59,10 @@
             android:shadowDx="2"
             android:shadowDy="2"
             android:shadowRadius="2"
-            android:text="Poka"
+            android:text="@{item.bottomText}"
             android:textColor="@color/white"
             android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/imageViewMeme"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

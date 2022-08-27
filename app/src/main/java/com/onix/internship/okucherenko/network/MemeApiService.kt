@@ -8,7 +8,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 private const val BASE_URL =
-    "http://alpha-meme-maker.herokuapp.com"
+    "https://podolyanbogdan.github.io/localememes/"
 
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create(Gson()))
@@ -16,7 +16,7 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface MemeApiService {
-    @GET("/{page}")
+    @GET("{page}")
     suspend fun getMemes(@Path("page") page: Int): MemePage
 }
 

@@ -2,13 +2,13 @@ package com.onix.internship.okucherenko.ui.memelist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.onix.internship.okucherenko.data.model.Data
 import com.onix.internship.okucherenko.databinding.MemeItemViewBinding
 
-class MemeItemAdapter : ListAdapter<Data, MemeItemAdapter.ViewHolder>(MemeItemDiffCallBack()) {
+class MemeItemAdapter : PagingDataAdapter<Data, MemeItemAdapter.ViewHolder>(MemeItemDiffCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
@@ -16,7 +16,9 @@ class MemeItemAdapter : ListAdapter<Data, MemeItemAdapter.ViewHolder>(MemeItemDi
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item)
+        if (item != null) {
+            holder.bind(item)
+        }
     }
 
     class ViewHolder private constructor(private val binding: MemeItemViewBinding) : RecyclerView.ViewHolder(binding.root) {
